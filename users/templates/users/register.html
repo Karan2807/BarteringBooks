@@ -1,0 +1,121 @@
+{% extends "feed/layout.html" %}{%load static%}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{%static 'assets/css/main.css'%}" />
+		<noscript><link rel="stylesheet" href="{%static 'assets/css/noscript.css' %}" /></noscript>
+</head>
+<body>
+  {%block content%}
+  <br />
+<div class="container">
+  <div class="row">
+    <div class="col-sm-9 col-md-9 col-lg-7 mx-auto">
+      <div class="card card-signin my-5">
+        <div class="card-body">
+          <h5 class="card-title text-center"><b>Register</b></h5>
+          <form class="form-signin" method="POST" autocomplete="off">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <table cellspacing="2" align="center" cellpadding="8" border="0">
+                 <tr>
+                <td align="right">Enter Username :</td>
+                <td><input type="text" name="username" placeholder="Enter Username here" id="t3" class="tb" /></td>
+                </tr>
+                <tr>
+                  <td align="right">Enter Email ID :</td>
+                  <td><input type="text" name="email" placeholder="Enter Email ID here" id="t2" class="tb" /></td>
+                  </tr>
+                 
+                <tr>
+                <tr>
+                <td align="right">Enter Password :</td>
+                <td><input type="password" name="pass1" placeholder="Enter Password here" id="t4" class="tb" /></td>
+                </tr>
+                <tr>
+                <td align="right">Enter Confirm Password :</td>
+                <td><input type="password" name="pass2" placeholder="Enter Password here" id="t5" class="tb" /></td>
+                </tr>
+                <tr>
+                  <td align="right">Enter Address:</td>
+                  <td><input type="text" name="add" placeholder="Enter only City,State" id="t6" class="tb"/></td>
+                  </tr>
+                 
+                <td>
+                <input type="reset" value="Clear Form" onclick="clearFunc()" id="res" class="btn" />
+                </td>
+                </tr>
+                </table>
+                <div class="form-group">
+                  <button
+                    class="btn btn-lg btn-primary btn-block text-uppercase"
+                    type="submit"
+                  >
+                    Sign Up</button
+                  ><br /><br />
+                </div>
+                <small
+                  ><p class="text-center">
+                    Already Registered!
+                    <a href="{% url 'login' %}"><b>Login Now!</b></a>
+                  </p></small
+                >
+              </form>
+            </fieldset>
+            
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+	
+<div>
+	{%for message in messages%}
+	<h3> {{message}} </h3>
+	{%endfor%}
+</div>
+    <style type="text/css">
+        body
+        {
+            margin:0px;
+            background-image:url(image/background.jpg);
+            color:black;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+        
+        #main{width:600px; height:auto; overflow:hidden; padding-bottom:20px; margin-left:auto; margin-right:auto; 
+         padding-left:10px; margin-top:100px;   padding-top:20px;
+        }
+        
+        #main table{font-family:"Comic Sans MS", cursive; border: 0px;}
+        /* css code for textbox */
+        #main .tb{height:28px; width:230px;  color:white; font-weight:bold; opacity:0.9;}
+        
+        #main .tb:focus{height:28px; border:1px solid #f26724; outline:none; border-left:5px solid #f7f7f7;}
+    
+        /* css code for button*/
+        #main .btn{width:150px; height:32px; outline:none;  color:#f7f7f7; font-weight:bold; border:0px solid; 
+        text-shadow: 0px 0.5px 0.5px #fff; border-radius: 2px; font-weight: 600; color: white; letter-spacing: 1px; 
+        font-size:14px; background-color:grey; -webkit-transition: 1s; -moz-transition: 1s; transition: 1s;}
+      
+        #main .btn:hover{background-color:rgb(100, 70, 70); outline:none;  border-radius: 2px; color:#f1f1f1; border:1px solid #aa7979;
+        -webkit-transition: 1s; -moz-transition: 1s; transition: 1s; }
+    
+    
+    
+    </style>
+
+  <script src="{%static 'assets/js/jquery.min.js' %}"></script>
+  <script src="{%static 'assets/js/jquery.scrolly.min.js'%}"></script>
+  <script src="{%static 'assets/js/jquery.dropotron.min.js'%}"></script>
+  <script src="{%static 'assets/js/jquery.scrollex.min.js' %}"></script>
+  <script src="{%static 'assets/js/browser.min.js' %}"></script>
+  <script src="{%static 'assets/js/breakpoints.min.js'%}"></script>
+  <script src="{%static 'assets/js/util.js' %}"></script>
+  <script src="{%static 'assets/js/main.js'%}"></script>
+ {%endblock%}   
+</body>
+
+
+
